@@ -75,5 +75,6 @@ def main(file_path):
         file.write(str(results))
 
 # Replace 'your_file_path_here.xlsx' with the path to your Excel file
-file_path = 'your_file_path_here.xlsx'
+
+file_path = Assignment_Timecard.xlsx
 main(file_path)
