@@ -35,7 +35,7 @@ def check_criteria(df):
         if hours_worked > 14:
             results["more_than_14_hours_single_shift"].append(employee)
 
-        # Consecutive days
+        # Consecutive days check
         if previous_day is not None and (shift_start.date() - previous_day).days == 1:
             consecutive_days += 1
             if consecutive_days == 7:
@@ -69,9 +69,11 @@ def main(file_path):
 
     # Analyze the data
     results = check_criteria(preprocessed_df)
-    return results
+
+    # Write the results to a file
+    with open('output.txt', 'w') as file:
+        file.write(str(results))
 
 # Replace 'your_file_path_here.xlsx' with the path to your Excel file
 file_path = 'your_file_path_here.xlsx'
-results = main(file_path)
-print(results)
+main(file_path)
